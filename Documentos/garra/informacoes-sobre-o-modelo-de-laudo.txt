@@ -1,0 +1,72 @@
+Para criar o seu arquivo template_laudo.docx em branco, você precisa espalhar estrategicamente as "Tags de Substituição" pelo texto. O script procura exatamente por essas chaves duplas {{ }} para injetar os textos, tabelas e imagens.
+
+Aqui está a lista completa com todas as 12 tags que o nosso código (versão 11.5) lê e preenche, divididas por categoria:
+
+
+📅 1. Dados Gerados pelo Sistema (Automáticos)
+•	{{DATA_PERICIA}}
+
+
+o	O que o script coloca aqui: A data de hoje com a hora exata em que o script rodou (ex: 24 de agosto de 2026 às 13h25).
+
+📄 2. Dados Extraídos do Ofício/Requisição (Cartório)
+•	{{ORGAO_REQUISITANTE}}
+
+
+o	O que o script coloca aqui: O nome da Delegacia ou órgão (ex: Delegacia de Polícia de Vila Nova dos Martírios).
+
+•	{{AUTORIDADE}}
+
+
+o	O que o script coloca aqui: O nome do delegado(a) ou autoridade que assina o documento.
+
+•	{{NUM_REQUISICAO}}
+
+
+o	O que o script coloca aqui: O tipo do documento acompanhado do número e ano (ex: Requisição de Exame Pericial Nº 14820/2025).
+
+•	{{DATA_EMISSAO}}
+
+
+o	O que o script coloca aqui: A data em que o documento foi assinado.
+
+•	{{DATA_RECEBIMENTO}}
+
+
+o	O que o script coloca aqui: A data do carimbo de recebimento no protocolo do ICRIM.
+
+•	{{REFERENCIA}}
+
+
+o	O que o script coloca aqui: O número do Inquérito Policial (IP) ou Boletim de Ocorrência (BO).
+
+•	{{ENVOLVIDO}}
+
+
+o	O que o script coloca aqui: O nome da vítima, suspeito, conduzido ou investigado.
+
+•	{{QUESITOS}}
+
+
+o	O que o script coloca aqui: A lista de perguntas formuladas pela autoridade policial, já limpa e numerada (1., 2., 3.). Se não houver, ele escreve: "Não foram formulados quesitos específicos..."
+
+🔬 3. Dados de Cadeia de Custódia e Exame (Fotogrametria IA)
+•	{{DESC_INVOLUCRO}}
+
+
+o	O que o script coloca aqui: Uma frase curta em texto corrido, começando em minúscula, descrevendo o material da embalagem, o lacre e as inscrições manuscritas.
+
+o	Dica de uso no Word: Coloque no meio de uma frase. Ex: "O material deu entrada neste Instituto acondicionado em {{DESC_INVOLUCRO}}, contendo as seguintes peças..."
+
+•	{{DESC_MATERIAL}}
+
+
+o	O que o script coloca aqui: É o "coração" do laudo. O bloco principal e detalhado com as descrições da arma de fogo, tópicos de cartuchos/estojos e a tabela de projéteis. Tudo já formatado com as letras (a, b, c...).
+
+📸 4. Apêndice Fotográfico
+•	{{FOTOS}}
+
+
+o	O que o script coloca aqui: Este é a âncora visual. A tag vai desaparecer e, no lugar dela, o script vai colar todas as fotos daquele caso redimensionadas cirurgicamente para 11 centímetros de largura, alinhadas ao centro, com uma legenda limpa embaixo de cada uma (ex: Fotografia 1: invólucro.).
+
+o	Observação: Se você esquecer de colocar essa tag no Word, o script não trava. Ele vai jogar todas as fotos lá no final do documento, em uma nova página.
